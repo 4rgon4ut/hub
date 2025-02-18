@@ -88,6 +88,62 @@
             margin: 20px auto; /* Center the merit image */
             display: block; /* Ensure it behaves as a block element for centering */
         }
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .card {
+            width: 300px;
+            height: 400px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card h3 {
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .embed-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .embed-item {
+            flex: 1 1 300px;           /* Flexible width with a min size */
+            max-width: 400px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+        .twitter-embed {
+            /* Scale the Twitter embed down to 50% of its original size */
+            transform: scale(0.5);
+            transform-origin: top left;
+            /* Since scaling reduces visual size, set a width/height for the container */
+            width: 500px;
+            height: 300px;
+        }
+        /* Optional: Style for Mirror iframes to ensure they fill their containers */
+        .mirror-embed iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
     </style>
 </head>
 <body>
@@ -95,24 +151,19 @@
     <img src="./avatar.png" alt="Avatar" class="avatar">
 
     <h1>Hey, I'm 4rgon4ut</h1>
-    <p>I'm a blockchain developer passionate about Ethereum, decentralized systems, and open-source development.</p>
-    <p>"ETH or Death"</p>
+    <p>I'm a blockchain developer passionate about Ethereum, decentralized systems, and open-source development. Im researching Native/Based Rollups and L2 topic as well as Ethereum L1 scaling. </p>
+
 
     <div class="section">
-        <h1>Languages I Use</h1>
-        <div class="icons">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Go_Logo_Blue.svg" alt="Go">
-            <img src="./rust.png" alt="Rust">
-            <img src="./solidity.png" alt="Solidity">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript">
-        </div>
+        <h1>Languages I Use:</h1>
+        <h2>Go | Rust | Solidity | Python | JavaScript</h2>
         <img src="./merit.png" alt="Custom Image" class="merit-image">
     </div>
 
     <div class="section experience">
         <h1>What's done:</h1>
         <h2>Gnosis Chain Core Development</h2>
+        <p style="text-align: center;">(Go, Solidity, Rust)</p>
         <ul>
             <li>Researched and justified <a href="https://github.com/gnosischain/specs/blob/master/research/dencun/eip-4844.md">EIP-4844</a> and <a href="https://github.com/gnosischain/specs/blob/master/research/dencun/eip-7514.md">EIP-7514</a> changes for Gnosis Chain</li>
             <li>Worked on internal infrastructure: go-eth2-client, checkpointz, goteth, and 3rd party provider monitoring</li>
@@ -121,50 +172,41 @@
             <li>Created several dappnode packages for EL and CL clients</li>
         </ul>
 
-        <h2>Evmos</h2>
+        <h2>Evmos Core Protocol Development</h2>
+        <p style="text-align: center;">(Go, Solidity)</p>
         <ul>
-            <li><strong>Core Protocol Engineer (Go)</strong></li>
-            <li>Evmos chain development (Go)</li>
-            <li>Ethermint (lib to use EVM in cosmos state-machine) development (Go)</li>
-            <li>IBC automatic ERC20 coin conversion (Go)</li>
-            <li>Ledger integration and go-ethereum fork development (Go)</li>
-            <li>E2E testing environment development</li>
+            <li>Worked on Evmos state machine and Ethermint library</li>
+            <li>Created automatic ERC20 <> Cosmos Token Standard conversion module for IBC</li>
+            <li>Worked on Ledger support and ERC-712 typed data signing</li>
+            <li>Created docker environment automation module for end-to-end testing</li>
         </ul>
 
-        <h2>VRM.trade</h2>
+        <h2>VRM.trade Solidity Development</h2>
+        <p style="text-align: center;">(Solidity, JS)</p>
         <ul>
-            <li><strong>Solidity Developer</strong></li>
-            <li>NFT marketplace Smart Contracts development (Solidity)</li>
-            <li>ERC721, ERC1155 standards implementation</li>
-            <li>Lazy minting (off-chain data signing according to EIPs 712, 1271)</li>
-            <li>UUPS proxy implementation</li>
-            <li>Gas optimizations</li>
-            <li>Security analysis using Mythril and Slither</li>
+            <li>Developed Smart Contracts for NFT marketplace</li>
+            <li>Implemented ERC-721, ERC-1155, EIP-712, EIP-1271 and UUPS proxy standards</li>
+            <li>Inspired and developed Lazy Minting mechanism</li>
+            <li>WOrked on Gas Optimizations and basic security Mythril and Slither tools</li>
         </ul>
 
-        <h2>Waves Tech</h2>
+        <h2>Waves Tech Gateways Development</h2>
+        <p style="text-align: center;">(Go, Solidity, Rust)</p>
         <ul>
-            <li><strong>Defi/Backend Developer (Go/Solidity)</strong></li>
-            <li>Liquidity cross-chain and fiat transfers system development (Go, Rust, Solidity)</li>
-            <li>Identity infrastructure development (AWS Cognito integration and TOTP auth)</li>
+            <li>Worked on Firewall development for Waves Exchange</li>
+            <li>Supported existing cross-chain system and worked on decentralization of its centralized components</li>
+            <li>Developed identity infrastructure TOTP/OTP confirmation flow</li>
         </ul>
     </div>
 
-    <div class="section">
-        <h2>Writings & Social Links</h2>
-        <ul>
-            <li><a href="https://github.com/yourusername">GitHub</a></li>
-            <li><a href="https://hackmd.io">HackMD Docs</a></li>
-            <li><a href="https://mirror.xyz">Mirror Blog</a></li>
-        </ul>
+    <div class="section socials">
+        <h2>Socials</h2>
+        <p>
+            <a href="https://github.com/4rgon4ut" target="_blank">GitHub</a> |
+            <a href="https://x.com/4rgon4ut_" target="_blank">X</a> |
+            <a href="https://mirror.xyz/0xB73C13Ac3bcD7361B1651CfA39606f216863c8eb" target="_blank">Mirror</a>
+        </p>
     </div>
 
-    <div class="section">
-        <h2>Embeds</h2>
-        <div class="embeds">
-            <iframe src="https://hackmd.io/P13YV34gRMOnZHqDUBvFQg"></iframe>
-            <iframe src="https://mirror.xyz/0xB73C13Ac3bcD7361B1651CfA39606f216863c8eb/fyb8ZMG2HtBZM4_Ihql96VBE_l3ISUwZpzzxsyq5HaE"></iframe>
-        </div>
-    </div>
 </body>
 </html>
