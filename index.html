@@ -7,60 +7,83 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
         body {
-            background-color: #000;
-            color: #0f9;
+            background-color: #000000e8;
+            color: rgb(44, 65, 55);
+            color: rgb(70, 228, 154);
+            color: rgb(160, 215, 201); /* Adjusted to a greener color */
             font-family: 'VT323', monospace;
-            text-align: center;
+            text-align: center; /* Center all text */
             padding: 20px;
+            font-size: 26px;
         }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: #111;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #0f9;
+        h1, h2 {
+            font-size: 40px;
+            margin-top: 40px;
         }
         a {
-            color: #ff0;
+            color: #fffb92; /* Changed to a yellow-orange color */
             text-decoration: none;
+        }
+        .section {
+            margin: 40px 0;
+        }
+        .experience {
+            text-align: left; /* Align experience section text to the left */
         }
         .embeds {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
+            justify-content: flex-end; /* Align embeds to the right */
+            gap: 20px;
             margin-top: 20px;
         }
-        .embed {
-            width: 45%;
-            background: #222;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 0 5px #0f9;
-        }
         .embed iframe {
-            width: 100%;
-            height: 200px;
+            width: 45%;
+            height: 300px;
             border: none;
         }
         .icons img {
-            width: 50px;
-            height: 50px;
-            margin: 5px;
+            width: 80px;
+            height: 80px;
+            margin: 10px;
+        }
+        .font-switch {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background:  #f7f275; /* Changed to a yellow-orange color */
+            color: #000;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Hey, I'm 4rgon4ut!</h1>
-        <p>"ETH or Death!"</p>
-        
+    <button class="font-switch" onclick="switchFont()">Switch Font</button>
+    <h1>Hey, I'm 4rgon4ut</h1>
+    <p>"ETH or Death!"</p>
+
+    <div class="section">
         <h2>About Me</h2>
         <p>I'm a blockchain developer passionate about Ethereum, decentralized systems, and open-source development.</p>
-        
+    </div>
+
+    <div class="section">
+        <h2>Languages I Use</h2>
+        <div class="icons">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Go_Logo_Blue.svg" alt="Go">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Rust_programming_language_black_logo.svg" alt="Rust">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Solidity_logo.svg" alt="Solidity">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" style="width:60px;height:60px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript" style="width:60px;height:60px;">
+        </div>
+        <img src="./merit.png" alt="Custom Image" width="100%">
+    </div>
+
+    <div class="section experience">
         <h2>Experience</h2>
-        <p><strong>Core Developer</strong> (05.2023 - 09.2024) - Gnosis Chain</p>
+        <h2>Gnosis Chain</h2>
+        <p><strong>Core Developer</strong> (05.2023 - 09.2024)</p>
         <ul>
             <li>Gnosis chain infra development (Go, Rust)</li>
             <li>Staking rewards distribution automation (Solidity)</li>
@@ -68,8 +91,9 @@
             <li>Ethereum Hive tests harness fork support</li>
             <li>Dappnode packages (added EL and CL clients that support Gnosis)</li>
         </ul>
-        
-        <p><strong>Core Protocol Engineer (Go)</strong> (08.2022 - 05.2023) - Evmos</p>
+
+        <h2>Evmos</h2>
+        <p><strong>Core Protocol Engineer (Go)</strong> (08.2022 - 05.2023)</p>
         <ul>
             <li>Evmos chain development (Go)</li>
             <li>Ethermint (lib to use EVM in cosmos state-machine) development (Go)</li>
@@ -77,8 +101,9 @@
             <li>Ledger integration and go-ethereum fork development (Go)</li>
             <li>E2E testing environment development</li>
         </ul>
-        
-        <p><strong>Solidity Developer</strong> (01.2022 - 08.2022) - VRM.trade</p>
+
+        <h2>VRM.trade</h2>
+        <p><strong>Solidity Developer</strong> (01.2022 - 08.2022)</p>
         <ul>
             <li>NFT marketplace Smart Contracts development (Solidity)</li>
             <li>ERC721, ERC1155 standards implementation</li>
@@ -87,42 +112,36 @@
             <li>Gas optimizations</li>
             <li>Security analysis using Mythril and Slither</li>
         </ul>
-        
-        <p><strong>Defi/Backend Developer (Go/Solidity)</strong> (01.2021 - 01.2022) - Waves Tech</p>
+
+        <h2>Waves Tech</h2>
+        <p><strong>Defi/Backend Developer (Go/Solidity)</strong> (01.2021 - 01.2022)</p>
         <ul>
             <li>Liquidity cross-chain and fiat transfers system development (Go, Rust, Solidity)</li>
             <li>Identity infrastructure development (AWS Cognito integration and TOTP auth)</li>
         </ul>
-        
+    </div>
+
+    <div class="section">
         <h2>Writings & Social Links</h2>
         <ul>
             <li><a href="https://github.com/yourusername">GitHub</a></li>
             <li><a href="https://hackmd.io">HackMD Docs</a></li>
             <li><a href="https://mirror.xyz">Mirror Blog</a></li>
         </ul>
-        
+    </div>
+
+    <div class="section">
         <h2>Embeds</h2>
         <div class="embeds">
-            <div class="embed">
-                <iframe src="https://hackmd.io/P13YV34gRMOnZHqDUBvFQg"></iframe>
-            </div>
-            <div class="embed">
-                <iframe src="https://mirror.xyz/0xB73C13Ac3bcD7361B1651CfA39606f216863c8eb/fyb8ZMG2HtBZM4_Ihql96VBE_l3ISUwZpzzxsyq5HaE"></iframe>
-            </div>
+            <iframe src="https://hackmd.io/P13YV34gRMOnZHqDUBvFQg"></iframe>
+            <iframe src="https://mirror.xyz/0xB73C13Ac3bcD7361B1651CfA39606f216863c8eb/fyb8ZMG2HtBZM4_Ihql96VBE_l3ISUwZpzzxsyq5HaE"></iframe>
         </div>
-        
-        <h2>Languages I Use</h2>
-        <div class="icons">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Go_Logo_Blue.svg" alt="Go">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Rust_programming_language_black_logo.svg" alt="Rust">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Solidity_logo.svg" alt="Solidity">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" style="width:40px;height:40px;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript" style="width:40px;height:40px;">
-        </div>
-        
-        <h2>More</h2>
-        <img src="image.png" alt="Custom Image" width="100%">
     </div>
+
+    <script>
+        function switchFont() {
+            document.body.style.fontFamily = document.body.style.fontFamily === 'VT323, monospace' ? 'Helvetica, sans-serif' : 'VT323, monospace';
+        }
+    </script>
 </body>
 </html>
-
