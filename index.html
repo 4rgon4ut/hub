@@ -7,39 +7,94 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
         body {
-            background-color: #111;
-            color: #0ff;
-            font-family: 'Press Start 2P', cursive;
+            background-color: #000;
+            color: #0f9;
+            font-family: 'VT323', monospace;
             text-align: center;
             padding: 20px;
         }
         .container {
             max-width: 800px;
             margin: auto;
-            background: #222;
+            background: #111;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px #0ff;
+            box-shadow: 0 0 10px #0f9;
         }
         a {
             color: #ff0;
             text-decoration: none;
         }
-        .embed {
+        .embeds {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
             margin-top: 20px;
+        }
+        .embed {
+            width: 45%;
+            background: #222;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px #0f9;
+        }
+        .embed iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
+        .icons img {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Hey, I'm 4rgon4ut</h1>
-
+        <h1>Hey, I'm 4rgon4ut!</h1>
+        <p>"ETH or Death!"</p>
         
-        <h2>"ETH or Death!"</h2>
-
+        <h2>About Me</h2>
+        <p>I'm a blockchain developer passionate about Ethereum, decentralized systems, and open-source development.</p>
         
-        <h2>Projects</h2>
-        <p>Check out my latest work:</p>
+        <h2>Experience</h2>
+        <p><strong>Core Developer</strong> (05.2023 - 09.2024) - Gnosis Chain</p>
+        <ul>
+            <li>Gnosis chain infra development (Go, Rust)</li>
+            <li>Staking rewards distribution automation (Solidity)</li>
+            <li>EIP-4844 and EIP-7514 research: <a href="#">click to see</a></li>
+            <li>Ethereum Hive tests harness fork support</li>
+            <li>Dappnode packages (added EL and CL clients that support Gnosis)</li>
+        </ul>
+        
+        <p><strong>Core Protocol Engineer (Go)</strong> (08.2022 - 05.2023) - Evmos</p>
+        <ul>
+            <li>Evmos chain development (Go)</li>
+            <li>Ethermint (lib to use EVM in cosmos state-machine) development (Go)</li>
+            <li>IBC (inter-blockchain communication) automatic ERC20 coin conversion (Go)</li>
+            <li>Ledger integration and go-ethereum fork development (Go)</li>
+            <li>E2E testing environment development</li>
+        </ul>
+        
+        <p><strong>Solidity Developer</strong> (01.2022 - 08.2022) - VRM.trade</p>
+        <ul>
+            <li>NFT marketplace Smart Contracts development (Solidity)</li>
+            <li>ERC721, ERC1155 standards implementation</li>
+            <li>Lazy minting (off-chain data signing according to EIPs 712, 1271)</li>
+            <li>UUPS proxy implementation</li>
+            <li>Gas optimizations</li>
+            <li>Security analysis using Mythril and Slither</li>
+        </ul>
+        
+        <p><strong>Defi/Backend Developer (Go/Solidity)</strong> (01.2021 - 01.2022) - Waves Tech</p>
+        <ul>
+            <li>Liquidity cross-chain and fiat transfers system development (Go, Rust, Solidity)</li>
+            <li>Identity infrastructure development (AWS Cognito integration and TOTP auth)</li>
+        </ul>
+        
+        <h2>Writings & Social Links</h2>
         <ul>
             <li><a href="https://github.com/yourusername">GitHub</a></li>
             <li><a href="https://hackmd.io">HackMD Docs</a></li>
@@ -47,12 +102,27 @@
         </ul>
         
         <h2>Embeds</h2>
-        <div class="embed">
-            <iframe src="https://hackmd.io/P13YV34gRMOnZHqDUBvFQg" width="100%" height="300" frameborder="0"></iframe>
+        <div class="embeds">
+            <div class="embed">
+                <iframe src="https://hackmd.io/P13YV34gRMOnZHqDUBvFQg"></iframe>
+            </div>
+            <div class="embed">
+                <iframe src="https://mirror.xyz/0xB73C13Ac3bcD7361B1651CfA39606f216863c8eb/fyb8ZMG2HtBZM4_Ihql96VBE_l3ISUwZpzzxsyq5HaE"></iframe>
+            </div>
         </div>
-        <div class="embed">
-            <iframe src="https://mirror.xyz/0xB73C13Ac3bcD7361B1651CfA39606f216863c8eb/fyb8ZMG2HtBZM4_Ihql96VBE_l3ISUwZpzzxsyq5HaE" width="100%" height="300" frameborder="0"></iframe>
+        
+        <h2>Languages I Use</h2>
+        <div class="icons">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Go_Logo_Blue.svg" alt="Go">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Rust_programming_language_black_logo.svg" alt="Rust">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Solidity_logo.svg" alt="Solidity">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" style="width:40px;height:40px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript" style="width:40px;height:40px;">
         </div>
+        
+        <h2>More</h2>
+        <img src="image.png" alt="Custom Image" width="100%">
     </div>
 </body>
 </html>
+
