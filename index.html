@@ -3,55 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My page</title>
+    <title>4rgon4ut</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
         body {
-            background-image: linear-gradient(to bottom right, rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.9)), url('./image copy 3.png');
+            background-image: linear-gradient(to bottom right, rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.9)), url('hub_background2.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            color: rgb(255, 255, 241); /* Main font color */
-            font-family: 'JetBrains Mono', monospace; /* Use JetBrains Mono for main text */
+            color: rgb(255, 255, 241);
+            font-family: 'JetBrains Mono', monospace;
             text-align: center;
             padding: 20px;
             font-size: 20px;
-            line-height: 1.5; /* Improved readability */
+            line-height: 1.5;
         }
         h1, h2 {
-            font-family: 'VT323', monospace; /* Use VT323 for headings */
+            font-family: 'VT323', monospace;
             font-size: 36px;
             margin-top: 20px;
-            color: #ff4500; /* Hot orange for headings */
+            color: #ff4500;
         }
         h1 {
             padding: 10px;
         }
         a {
-            color: #f7f275; /* Highlight color */
+            color: #f7f275;
             text-decoration: none;
             transition: color 0.3s;
         }
         a:hover {
-            color: #ff6600; /* Bright orange on hover */
+            color: #ff6600;
         }
         .section {
             margin: 40px 0;
             padding: 20px;
         }
         .experience {
-            margin: 20px auto;            /* Center the container */
-            max-width: 800px;             /* Set a max width for better readability */
-            text-align: left;             /* Align content to the left */
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
         }
         .experience p {
-            margin: 10px 0;              /* Paragraph spacing */
-            line-height: 1.6;            /* Improve readability */
-            text-align: left;            /* Left align paragraphs */
+            margin: 10px 0;
+            line-height: 1.6;
+            text-align: left;
         }
         .experience h1, .experience h2 {
-            text-align: center;          /* Center the headings within the section */
+            text-align: center;
         }
         .icons img {
             width: 60px;
@@ -60,38 +60,40 @@
             transition: transform 0.3s;
         }
         .icons img:hover {
-            transform: scale(1.1); /* Scale effect on hover */
+            transform: scale(1.1);
         }
         .font-switch {
             margin-top: 20px;
             padding: 10px 20px;
-            background: #ffcc00; /* Neon yellow */
+            background: #ffcc00;
             color: #000;
             border: none;
             font-size: 20px;
             cursor: pointer;
             transition: background 0.3s;
-            float: left; /* Move button to the left */
+            float: left;
         }
         .font-switch:hover {
-            background: #ff6600; /* Bright orange on hover */
+            background: #ff6600;
         }
         .avatar {
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            margin: 20px auto; /* Center the avatar */
-            display: block; /* Ensure it behaves as a block element for centering */
+            margin: 20px auto;
+            display: block;
         }
         .merit-image {
-            width: 20cm; /* Increase size of merit image */
-            margin: 20px auto; /* Center the merit image */
-            display: block; /* Ensure it behaves as a block element for centering */
+            width: 20cm;
+            max-width: 100%;
+            margin: 20px auto;
+            display: block;
         }
         .card-container {
             display: flex;
             justify-content: center;
             gap: 20px;
+            flex-wrap: wrap;
         }
         .card {
             width: 300px;
@@ -123,7 +125,7 @@
             margin-top: 20px;
         }
         .embed-item {
-            flex: 1 1 300px;           /* Flexible width with a min size */
+            flex: 1 1 300px;
             max-width: 400px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             padding: 10px;
@@ -131,14 +133,11 @@
             border-radius: 10px;
         }
         .twitter-embed {
-            /* Scale the Twitter embed down to 50% of its original size */
             transform: scale(0.5);
             transform-origin: top left;
-            /* Since scaling reduces visual size, set a width/height for the container */
             width: 500px;
             height: 300px;
         }
-        /* Optional: Style for Mirror iframes to ensure they fill their containers */
         .mirror-embed iframe {
             width: 100%;
             height: 100%;
@@ -152,6 +151,65 @@
         .socials p {
             margin: 0 auto;
         }
+
+        /* Responsive styles */
+        @media (max-width: 900px) {
+            .experience, .socials {
+                max-width: 98vw;
+                padding: 10px;
+            }
+            .section {
+                padding: 10px;
+            }
+        }
+        @media (max-width: 600px) {
+            body {
+                font-size: 16px;
+                padding: 8px;
+            }
+            h1, h2 {
+                font-size: 26px;
+            }
+            .avatar {
+                width: 70px;
+                height: 70px;
+            }
+            .merit-image {
+                width: 100%;
+                max-width: 100vw;
+            }
+            .card-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .card {
+                width: 95vw;
+                max-width: 340px;
+                height: auto;
+            }
+            .card img {
+                height: 140px;
+            }
+            .embed-grid {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .embed-item {
+                max-width: 98vw;
+            }
+            .twitter-embed {
+                transform: scale(0.8);
+                width: 320px;
+                height: 200px;
+            }
+            .font-switch {
+                font-size: 16px;
+                padding: 8px 12px;
+                float: none;
+                display: block;
+                margin: 12px auto 0 auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -162,10 +220,9 @@
     <p style="text-align: center; max-width: 1000px; margin: 0 auto;">I'm passionate about decentralized systems and open-source software.</p>
     <p style="text-align: center; max-width: 1000px; margin: 0 auto;">Points of interest: Native/Based Rollups, other L2s, Ethereum L1 scaling.</p>
 
-
     <div class="section">
         <h1>Languages I Use:</h1>
-        <h2>Go | Rust | Solidity | Python | JavaScript</h2>
+        <h2>Go | Rust | Solidity | Zig </h2>
         <img src="./merit.png" alt="Custom Image" class="merit-image">
     </div>
 
