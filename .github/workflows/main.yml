@@ -1,0 +1,35 @@
+name: Create PDF Version
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout your repository's code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Convert HTML to PDF
+      # This action serves the content of the source-path directory
+      # and renders the index.html file to a PDF.
+      - name: HTML to PDF converter
+        uses: ferdinandkeller/html-to-pdf-action@v2
+        with:
+          source-path: "." # The directory containing your index.html
+          destination-path: "assets/4rgon4ut.pdf" # The name of the output PDF file
+
+      # 3. Deploy the generated PDF to GitHub Pages
+      # This makes the PDF available on your live site.
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          # This ensures that the workflow-generated files are committed
+          keep_files: true
