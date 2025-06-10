@@ -76,6 +76,27 @@
         .font-switch:hover {
             background: #b76ed3;
         }
+        .download-button-container {
+            margin-top: 25px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .download-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #d6a4e3; /* Theme color */
+            color: #0a0a0a; /* Dark text */
+            font-family: 'VT323', monospace;
+            font-size: 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 1px solid #b76ed3;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .download-button:hover {
+            background-color: #b76ed3;
+            color: #fff;
+        }
         .avatar {
             width: 100px;
             height: 100px;
@@ -225,6 +246,11 @@
     <h1>Hey, I'm 4rgon4ut</h1>
     <p style="text-align: center; max-width: 1000px; margin: 0 auto;">I'm passionate about decentralized systems and open-source software.</p>
     <p style="text-align: center; max-width: 1000px; margin: 0 auto;">Points of interest: Native Rollups, RISC-V and Ethereum L1 scaling.</p>
+
+    <!-- Download PDF Button -->
+    <div class="download-button-container">
+        <a href="./4rgon4ut_CV.pdf" download="4rgon4ut_CV.pdf" class="download-button">Get PDF</a>
+    </div>
 
     <div class="section">
         <h1>Languages I Use:</h1>
