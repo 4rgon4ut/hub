@@ -1,46 +1,30 @@
-name: Build and Deploy to GitHub Pages
+name: Convert HTML to PDF
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  workflow_dispatch: # allows manual trigger of the action
 
 jobs:
-  build:
+  convert-html:
     runs-on: ubuntu-latest
+
     steps:
+      # Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Create PDF from HTML
+      # Run the HTML to PDF converter action
+      - name: HTML website to PDF converter
         uses: ferdinandkeller/html-to-pdf-action@v2
         with:
-          source-path: "index.html" # Specify the HTML file to convert
+          source-path: "."
           destination-path: "./assets/4rgon4ut.pdf"
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      # Upload the PDF as an artifact
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
         with:
-          # Upload entire repository content (which now includes the generated PDF in ./assets/)
-          path: '.'
-
-  deploy:
-    needs: build
-    permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          name: generated-pdf
+          path: ./assets/4rgon4ut.pdf
