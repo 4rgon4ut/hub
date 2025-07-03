@@ -1,7 +1,7 @@
 name: Generate PDF from HTML
 
 on:
-  push:
+  pull_request:
     branches:
       - main
     paths:
