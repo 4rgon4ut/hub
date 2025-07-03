@@ -1,6 +1,12 @@
 name: Generate PDF from HTML
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'index.html'
+      - 'generate-pdf.js'
   pull_request:
     branches:
       - main
