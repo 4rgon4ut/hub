@@ -1,24 +1,13 @@
-name: Generate PDF from HTML
+name: Generate and Deploy PDF
 
 on:
   push:
     branches:
-      - main
-    paths:
-      - 'index.html'
-      - 'generate-pdf.js'
-  pull_request:
-    branches:
-      - main
-    paths:
-      - 'index.html'
-      - 'generate-pdf.js'
-  workflow_dispatch:
+      - main # Trigger the workflow on push to main
 
 jobs:
-  build-pdf:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -34,4 +23,16 @@ jobs:
       - name: Run PDF generation script
         run: node generate-pdf.js
 
-      
+      - name: Deploy to deploy branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # The branch to deploy to.
+          publish_branch: deploy
+          # The directory to publish. '.' means the whole repo in this case.
+          publish_dir: .
+          # This makes the commit in the name of "github-actions[bot]"
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          # A custom commit message for the deploy branch
+          commit_message: 'docs: Deploy latest version to website'
