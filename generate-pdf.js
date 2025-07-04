@@ -21,25 +21,31 @@ const fs = require('fs')
   const pdfPath = path.resolve(assetsDir, '4rgon4ut.pdf')
 
   try {
+    // Set a viewport that triggers the desktop layout
+    await page.setViewport({ width: 1920, height: 1080 });
+
     // Navigate to the local HTML file
     await page.goto(`file://${htmlFilePath}`, {
-      waitUntil: 'networkidle0', // Waits for network activity to be idle
+      waitUntil: 'networkidle0',
     })
 
-    // Get the dimensions of the page to generate a single-page PDF
-    const dimensions = await page.evaluate(() => {
-      const body = document.body;
-      const html = document.documentElement;
-      const height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-      const width = Math.max(body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth);
-      return { width, height };
-    });
+    // Get the full height of the page content
+    const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
 
-    // Generate PDF with custom dimensions
+    // Define target PDF dimensions (e.g., 16:9 aspect ratio)
+    const pdfWidth = 1920;
+    const pdfHeight = 1080;
+
+    // Calculate the scale factor to fit the content height into the PDF height
+    // Clamp the scale to be within puppeteer's allowed range [0.1, 2]
+    const scale = Math.max(0.1, Math.min(2, pdfHeight / bodyHeight));
+
+    // Generate PDF with fixed dimensions and scaling
     await page.pdf({
       path: pdfPath,
-      width: `${dimensions.width}px`,
-      height: `${dimensions.height}px`,
+      width: `${pdfWidth}px`,
+      height: `${pdfHeight}px`,
+      scale: scale,
       printBackground: true,
       margin: {
         top: '0px',
@@ -52,7 +58,7 @@ const fs = require('fs')
     console.log(`PDF successfully generated at ${pdfPath}`)
   } catch (error) {
     console.error('Error generating PDF:', error)
-    process.exit(1) // Exit with error code
+    process.exit(1)
   } finally {
     await browser.close()
   }
