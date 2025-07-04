@@ -34,8 +34,4 @@ jobs:
       - name: Run PDF generation script
         run: node generate-pdf.js
 
-      - name: Commit and push PDF
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "docs: Generate and update PDF from index.html"
-          file_pattern: assets/4rgon4ut.pdf
+      
