@@ -25,7 +25,7 @@ const fs = require('fs')
     // Define the target width for the PDF to match the reference file's aspect ratio.
     // Using a consistent variable makes it easy to adjust and ensures synchronization.
     // 1440px is a good, high-quality width for a screen-optimized resume.
-    const pdfTargetWidth = 1440;
+    const pdfTargetWidth = 700;
 
     try {
       // Set the viewport to the exact width of our target PDF. This ensures
@@ -38,25 +38,34 @@ const fs = require('fs')
         waitUntil: 'networkidle0',
       })
 
-      // Generate the PDF with settings synchronized to the viewport for a 1:1 output.
+      // Set a fixed width for the body to control the content area
+      await page.evaluate(() => {
+        document.body.style.width = '700px';
+        document.body.style.margin = '0 auto';
+      });
+
+      // Get the full height of the page content
+      const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
+
+      // Define target PDF dimensions
+      const pdfHeight = 1080;
+
+      // Calculate the scale factor to fit the content height into the PDF height
+      const scale = pdfHeight / bodyHeight;
+
+      // Generate PDF with fixed dimensions and scaling
       await page.pdf({
         path: pdfPath,
-        // Set the PDF page width to match the viewport width.
         width: `${pdfTargetWidth}px`,
-        // Set scale to 1. This is crucial for a direct, unscaled mapping
-        // from the browser rendering to the PDF document.
-        scale: 1,
-        // Ensure background graphics are included, as in the reference PDF.
+        height: `${pdfHeight}px`,
+        scale: scale,
         printBackground: true,
-        // Remove all margins to match the reference PDF's edge-to-edge design.
         margin: {
           top: '0px',
           right: '0px',
           bottom: '0px',
           left: '0px',
         },
-        // By not specifying a height, Puppeteer creates a single page that
-        // is exactly tall enough to fit all the content.
       })
 
       // --- END OF MODIFICATIONS ---
